@@ -13,3 +13,16 @@ void recur (int level)
 	}
 
 CS4000_FUNCTION_EXPORT(recur, recur, Call a function recursively)
+
+void recur_thread(void *parameter)
+	{
+	int cnt = (int) parameter;
+
+	recur(cnt);
+	while(1)
+		{
+		rt_thread_mdelay(1000);
+		}
+	}
+
+CS4000_FUNCTION_EXPORT(recur_thread, recur_thread, Start a thread to call function recursively)
