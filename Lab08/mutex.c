@@ -4,6 +4,10 @@ int v1;
 int v2;
 int count;
 
+FINSH_VAR_EXPORT(v1, finsh_type_int, Variable 1)
+FINSH_VAR_EXPORT(v2, finsh_type_int, Variable 2)
+FINSH_VAR_EXPORT(count, finsh_type_int, Count)
+
 void mutex1 (void)
 	{
 	while(1)

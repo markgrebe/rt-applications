@@ -8,7 +8,7 @@ void semB (rt_sem_t semId)
 		{
 		if (rt_sem_take (semId, RT_WAITING_FOREVER) != RT_EOK)
 			{
-			rt_kprintf ("semTake failed\n");
+			rt_kprintf ("%s task exiting semaphore\n", id->name);
 			return;
 			}
 		rt_kprintf ("%s task took semaphore\n", id->name);

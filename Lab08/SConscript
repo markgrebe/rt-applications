@@ -2,7 +2,7 @@ from building import *
 import os
 
 cwd = GetCurrentDir()
-src = ['semB.c','semC.c','semM.c','mutex.c','main.c']
+src = ['semB.c','semM.c','mutex.c','main.c']
 CPPPATH = [cwd]
 
 group = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH)
