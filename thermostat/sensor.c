@@ -60,6 +60,7 @@ void sensor_init(void)
     // Create the Sensor Thread and the mutex to protect
     // the sensor shared memory area.
 
+
     // Initialize the Sensor driver.
     bme280_init(i2c0, I2C_SDA_PIN, I2C_SCL_PIN);
 
@@ -71,4 +72,5 @@ void sensor_start(void)
     // FillMeIn
     // The Sensor thread needs to be started.
 
+    rt_thread_startup(sensor_tid);
     }

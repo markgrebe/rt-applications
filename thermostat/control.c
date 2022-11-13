@@ -27,21 +27,13 @@ static float cool_set_temperature;
 static float heat_set_temperature;
 static HVACMode set_mode;
 
+static float temperature;
+
 // Sensor component shared memory variables to store
 // Control component status variables.
 static int cool_on;
 static int heat_on;
 static int fan_on;
-
-HVACMode control_get_mode(void)
-    {
-    // FillMeIn
-    // "Getter" function for the Control component that
-    // allows an external component to read the Control
-    // mode variables.
-
-    return(set_mode);
-    }
 
 float control_get_cool_temperature(void)
     {
@@ -63,18 +55,16 @@ float control_get_heat_temperature(void)
     return(heat_set_temperature);
     }
 
-void control_get_status(int *cool_status, int *heat_status, int *fan_status)
+void control_get_status(HVACMode *mode,
+                        int *cool_status, 
+                        int *heat_status, 
+                        int *fan_status)
     {
     // FillMeIn
     // "Getter" function for the Control component that
     // allows an external component to read the Control
     // status variables.
 
-    rt_mutex_take(control_mutex, RT_WAITING_FOREVER);
-    *cool_status = cool_on;
-    *heat_status = heat_on;
-    *fan_status = fan_on;
-    rt_mutex_release(control_mutex);
     }
 
 static void control_entry(void *parameter)
@@ -110,6 +100,8 @@ static void control_entry(void *parameter)
 
 void control_init(void)
     {
+    rt_kprintf("Starting Control Init!\n");
+
     // FillMeIn
     // The Control component needs to be initialized.
     // Create the Control Thread, the mutex to protect

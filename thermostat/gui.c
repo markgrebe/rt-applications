@@ -61,6 +61,10 @@ void gui_init(void)
     // The GUI component needs to be initialized.
     // Create the GUI Thread and initialize the display.
 
+
+    hagl_init();
+    hagl_clear_screen();
+    hagl_flush();
     rt_kprintf("Finished GUI Init!\n");
     }
 

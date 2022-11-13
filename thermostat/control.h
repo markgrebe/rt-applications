@@ -22,10 +22,10 @@ extern rt_mq_t control_msgq;
 void control_init(void);
 void control_start(void);
 
-HVACMode control_get_mode(void);
 float control_get_cool_temperature(void);
 float control_get_heat_temperature(void);
-void control_get_status(int *cool_status,
+void control_get_status(HVACMode *mode,
+                        int *cool_status,
                         int *heat_status,
                         int *fan_status);
 
