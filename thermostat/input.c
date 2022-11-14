@@ -15,8 +15,6 @@
 #define NUM_BUTTONS (4)
 // Array containing the button pin numbers
 static uint8_t buttton_pins[NUM_BUTTONS] = {12,13,14,15};
-// Array to send character messages for a button press
-static char msg[NUM_BUTTONS] = {'A','B','X','Y'};
 
 // Debounce control
 static uint32_t time[NUM_BUTTONS];
@@ -43,7 +41,6 @@ static void button_int_handler(uint gpio, uint32_t events)
                 // The message should contain the key that was
                 // pressed
 
-                rt_mq_send(control_msgq,&msg[i],1);
 
                 rt_interrupt_leave();
                 return;
