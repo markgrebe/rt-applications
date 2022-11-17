@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "stdlib.h": "c",
+        "math.h": "c",
+        "control.h": "c",
+        "compare.h": "c",
+        "widget.h": "c"
+    }
+}
